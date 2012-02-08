@@ -65,17 +65,17 @@ def WriteFullOTAPackage(input_zip, output_zip):
   script.ShowProgress(0.5, 0)
 
   if OPTIONS.wipe_user_data:
-# Comments during install added for Evervolv by cocide
+# Comments during install added for Classicnerd by Leoisright
     script.Print("Wiping user data")
     script.FormatPartition("/data")
 
-# Comments during install added for Evervolv by cocide
+# Comments during install added for Classicnerd by Leoisright
   script.Print("Formatting system")
   script.FormatPartition("/system")
   script.Mount("/system")
   script.UnpackPackageDir("recovery", "/system")
-# Comments during install added for Evervolv by cocide
-  script.Print("Installing Evervolv")
+# Comments during install added for Classicnerd by Leoisright
+  script.Print("Installing Classicnerd")
   script.UnpackPackageDir("system", "/system")
 
   symlinks,retouch_files = CopySystemFiles(input_zip, output_zip)
@@ -109,23 +109,26 @@ def WriteFullOTAPackage(input_zip, output_zip):
   boot_img.close()
 
   script.Mount("/boot")
-  script.UnpackPackageFile("boot.img", "/boot/uImage.Evervolv")
+  script.UnpackPackageFile("boot.img", "/boot/uImage.Classicnerd")
 
-  moboot_tga = open(OPTIONS.device_out + "/moboot.splash.Evervolv.tga")
-  common.ZipWriteStr(output_zip, "moboot.splash.Evervolv.tga", moboot_tga.read())
+  moboot_tga = open(OPTIONS.device_out + "/moboot.splash.Classicnerd.tga")
+  common.ZipWriteStr(output_zip, "moboot.splash.Classicnerd.tga", moboot_tga.read())
   moboot_tga.close()
 
   moboot_default = open(OPTIONS.device_out + "/moboot.default")
   common.ZipWriteStr(output_zip, "moboot.default", moboot_default.read())
   moboot_tga.close()
 
-  script.UnpackPackageFile("moboot.splash.Evervolv.tga", "/boot/moboot.splash.Evervolv.tga")
+  script.UnpackPackageFile("moboot.splash.Classicnerd.tga", "/boot/moboot.splash.Classicnerd.tga")
   script.UnpackPackageFile("moboot.default", "/boot/moboot.default")
 
   # Delete CyanongenMod uImage traces.
 
   cm = ["/boot/uImage.CyanogenMod", "/boot/moboot.splash.CyanogenMod.tga",
-        "/boot/uImage.ICS", "/boot/moboot.splash.ICS.tga"]
+        "/boot/uImage.ICS", "/boot/moboot.splash.ICS.tga", "/boot/uImage.Evervolv",
+        "/boot/moboot.splash.Evervolv", "/boot/uImage.AOKP", "/boot/moboot.splash.AOKP",
+        "/boot/uImage.Classicnerd_SE", "/boot/moboot.splash.Classicnerd_SE",
+        "/boot/uImage.Classicnerd", "/boot/moboot.splash.Classicnerd"]
   script.DeleteFiles(cm)
 
   # -- tenderloin build change done
