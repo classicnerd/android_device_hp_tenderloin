@@ -7,7 +7,7 @@ $(call inherit-product, vendor/cn/config/common_full_tablet_wifionly.mk)
 #
 # Setup device specific product configuration.
 #
-PRODUCT_NAME := cn_tenderloin
+PRODUCT_NAME := classic_tenderloin
 PRODUCT_BRAND := HP
 PRODUCT_DEVICE := tenderloin
 PRODUCT_MODEL := Touchpad
@@ -20,7 +20,7 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 
 # Set up the product codename, build version & MOTD.
 PRODUCT_CODENAME := Butta
-PRODUCT_VERSION_DEVICE_SPECIFIC := 5
+PRODUCT_VERSION_DEVICE_SPECIFIC := 0
 
 PRODUCT_MOTD :="\n\n\n--------------------MESSAGE---------------------\nThank you for choosing Classicnerd for your HP Touchpad\nGet the latest rom at classicnerd.net\n------------------------------------------------\n"
 
@@ -29,7 +29,7 @@ PRODUCT_MOTD :="\n\n\n--------------------MESSAGE---------------------\nThank yo
 
 # Hot reboot
 PRODUCT_PACKAGE_OVERLAYS += \
-    vendor/ev/overlay/hot_reboot
+    vendor/cn/overlay/hot_reboot
 
 # Copy compatible prebuilt files
 PRODUCT_COPY_FILES +=  \

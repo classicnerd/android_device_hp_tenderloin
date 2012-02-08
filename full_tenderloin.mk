@@ -1,6 +1,6 @@
 #
-# Copyright (C) 2011 The Evervolv Project
 # Copyright (C) 2011 The CyanogenMod Project
+# Copyright (C) 2012 The Classicnerd Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -34,7 +34,7 @@ PRODUCT_COPY_FILES += \
     device/hp/tenderloin/init.qcom.bt.sh:system/etc/init.qcom.bt.sh \
     device/hp/tenderloin/prebuilt/bluetooth/hciattach:system/bin/hciattach_awesome \
     device/hp/tenderloin/makemulti.sh:makemulti.sh \
-    device/hp/tenderloin/prebuilt/boot/moboot.splash.Evervolv.tga:moboot.splash.Evervolv.tga \
+    device/hp/tenderloin/prebuilt/boot/moboot.splash.Classicnerd.tga:moboot.splash.Classicnerd.tga \
     device/hp/tenderloin/prebuilt/boot/moboot.default:moboot.default
 
 # Add touchcreen configuration file
