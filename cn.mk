@@ -1,13 +1,13 @@
 # Inherit AOSP device configuration for inc.
 $(call inherit-product, device/hp/tenderloin/full_tenderloin.mk)
 
-# Inherit some common evervolv stuff.
-$(call inherit-product, vendor/ev/config/common_full_tablet_wifionly.mk)
+# Inherit some common classicnerd stuff.
+$(call inherit-product, vendor/cn/config/common_full_tablet_wifionly.mk)
 
 #
 # Setup device specific product configuration.
 #
-PRODUCT_NAME := ev_tenderloin
+PRODUCT_NAME := cn_tenderloin
 PRODUCT_BRAND := HP
 PRODUCT_DEVICE := tenderloin
 PRODUCT_MODEL := Touchpad
@@ -19,10 +19,10 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     PRIVATE_BUILD_DESC="trygon-user 3.2.4 HLK75F 221360 release-keys"
 
 # Set up the product codename, build version & MOTD.
-PRODUCT_CODENAME := Queo
-PRODUCT_VERSION_DEVICE_SPECIFIC := p5
+PRODUCT_CODENAME := Butta
+PRODUCT_VERSION_DEVICE_SPECIFIC := 5
 
-PRODUCT_MOTD :="\n\n\n--------------------MESSAGE---------------------\nThank you for choosing Evervolv for your HP Touchpad\nPlease visit us at \#evervolv on irc.freenode.net\nFollow @preludedrew for the latest Evervolv updates\nGet the latest rom at evervolv.com\n------------------------------------------------\n"
+PRODUCT_MOTD :="\n\n\n--------------------MESSAGE---------------------\nThank you for choosing Classicnerd for your HP Touchpad\nGet the latest rom at classicnerd.net\n------------------------------------------------\n"
 
 #PRODUCT_PACKAGES += \
 #    Camera
@@ -33,7 +33,7 @@ PRODUCT_PACKAGE_OVERLAYS += \
 
 # Copy compatible prebuilt files
 PRODUCT_COPY_FILES +=  \
-    vendor/ev/prebuilt/xga/media/bootanimation.zip:system/media/bootanimation.zip
+    vendor/cn/prebuilt/xga/media/bootanimation.zip:system/media/bootanimation.zip
 
 # USB
 #ADDITIONAL_DEFAULT_PROPERTIES += persist.sys.usb.config=mass_storage,adb
