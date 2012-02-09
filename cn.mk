@@ -20,7 +20,7 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 
 # Set up the product codename, build version & MOTD.
 PRODUCT_CODENAME := Butta
-PRODUCT_VERSION_DEVICE_SPECIFIC := 0
+PRODUCT_VERSION_DEVICE_SPECIFIC := v0
 
 PRODUCT_MOTD :="\n\n\n--------------------MESSAGE---------------------\nThank you for choosing Classicnerd for your HP Touchpad\nGet the latest rom at www.classicnerd.net\n------------------------------------------------\n"
 
