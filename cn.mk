@@ -22,14 +22,14 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 PRODUCT_CODENAME := Butta
 PRODUCT_VERSION_DEVICE_SPECIFIC := v0
 
-PRODUCT_MOTD :="\n\n\n--------------------MESSAGE---------------------\nThank you for choosing Classicnerd for your HP Touchpad\nGet the latest rom at www.classicnerd.net\n------------------------------------------------\n"
+PRODUCT_MOTD :="\n\n\nThank you for choosing Classicnerd Tenderloin\nGet the latest rom at www.classicnerd.net - enjoy the possibilities\n"
 
 #PRODUCT_PACKAGES += \
 #    Camera
 
 # Hot reboot
 PRODUCT_PACKAGE_OVERLAYS += \
-    vendor/cn/overlay/hot_reboot
+   vendor/cn/overlay/hot_reboot
 
 # Copy compatible prebuilt files
 PRODUCT_COPY_FILES +=  \
