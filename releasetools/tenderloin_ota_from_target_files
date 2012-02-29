@@ -74,6 +74,7 @@ def WriteFullOTAPackage(input_zip, output_zip):
   script.FormatPartition("/system")
   script.Mount("/system")
   script.UnpackPackageDir("recovery", "/system")
+
 # Comments during install added for Classicnerd by Leoisright
   script.Print("Installing Classicnerd")
   script.UnpackPackageDir("system", "/system")
@@ -110,13 +111,16 @@ def WriteFullOTAPackage(input_zip, output_zip):
 
   script.Mount("/boot")
 
-  # Delete CyanongenMod uImage traces.
+# Delete All Android uImage traces.
+# Comments during install added for Classicnerd by Leoisright
 
   cm = ["/boot/uImage.CyanogenMod", "/boot/moboot.splash.CyanogenMod.tga",
         "/boot/uImage.ICS", "/boot/moboot.splash.ICS.tga", "/boot/uImage.Evervolv",
         "/boot/moboot.splash.Evervolv", "/boot/uImage.AOKP", "/boot/moboot.splash.AOKP",
         "/boot/uImage.Classicnerd_SE", "/boot/moboot.splash.Classicnerd_SE",
-        "/boot/uImage.Classicnerd", "/boot/moboot.splash.Classicnerd"]
+        "/boot/uImage.Classicnerd", "/boot/moboot.splash.Classicnerd",
+        "/boot/uImage.CM_Bricked-Kernel", "/boot/moboot.splash.CM_Bricked-Kernel",
+        "/boot/moboot.background.tga"]
   script.DeleteFiles(cm)
 
   script.UnpackPackageFile("boot.img", "/boot/uImage.Classicnerd")
@@ -125,10 +129,17 @@ def WriteFullOTAPackage(input_zip, output_zip):
   common.ZipWriteStr(output_zip, "moboot.splash.Classicnerd.tga", moboot_tga.read())
   moboot_tga.close()
 
+  moboot_tga = open(OPTIONS.device_out + "/moboot.background.tga")
+  common.ZipWriteStr(output_zip, "moboot.background.tga", moboot_tga.read())
+  moboot_tga.close()
+
   moboot_default = open(OPTIONS.device_out + "/moboot.default")
   common.ZipWriteStr(output_zip, "moboot.default", moboot_default.read())
   moboot_tga.close()
 
+# Comments during install added for Classicnerd by Leoisright
+
+  script.UnpackPackageFile("moboot.background.tga", "/boot/moboot.background.tga")
   script.UnpackPackageFile("moboot.splash.Classicnerd.tga", "/boot/moboot.splash.Classicnerd.tga")
   script.UnpackPackageFile("moboot.default", "/boot/moboot.default")
 

@@ -26,6 +26,7 @@ media.stagefright.enable-meta=true
 media.stagefright.enable-scan=true
 media.stagefright.enable-http=true
 ro.media.enc.jpeg.quality=100
+ro.config.play.bootsound=1
 
 # The OpenGL ES API level that is natively supported by this device.
 # This is a 16.16 fixed point number
@@ -41,4 +42,3 @@ ro.emmc = 1
 net.bt.name=Android
 
 persist.service.adb.enable=1
-

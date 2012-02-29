@@ -35,6 +35,7 @@ PRODUCT_COPY_FILES += \
     device/hp/tenderloin/prebuilt/bluetooth/hciattach:system/bin/hciattach_awesome \
     device/hp/tenderloin/makemulti.sh:makemulti.sh \
     device/hp/tenderloin/prebuilt/boot/moboot.splash.Classicnerd.tga:moboot.splash.Classicnerd.tga \
+    device/hp/tenderloin/prebuilt/boot/moboot.background.tga:moboot.background.tga \
     device/hp/tenderloin/prebuilt/boot/moboot.default:moboot.default
 
 # Add touchcreen configuration file
@@ -164,7 +165,8 @@ PRODUCT_PACKAGES += \
     dosfsck \
     bcattach \
     serial \
-    com.android.future.usb.accessory
+    com.android.future.usb.accessory \
+    rebootcmd
 
 PRODUCT_PACKAGES += \
 	make_ext4fs

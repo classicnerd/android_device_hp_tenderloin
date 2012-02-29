@@ -20,7 +20,7 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 
 # Set up the product codename, build version & MOTD.
 PRODUCT_CODENAME := Butta
-PRODUCT_VERSION_DEVICE_SPECIFIC := v0
+PRODUCT_VERSION_DEVICE_SPECIFIC := v4
 
 PRODUCT_MOTD :="\n\n\nThank you for choosing Classicnerd Tenderloin\nGet the latest rom at www.classicnerd.net - enjoy the possibilities\n"
 
@@ -33,7 +33,8 @@ PRODUCT_PACKAGE_OVERLAYS += \
 
 # Copy compatible prebuilt files
 PRODUCT_COPY_FILES +=  \
-    vendor/cn/prebuilt/xga/media/bootanimation.zip:system/media/bootanimation.zip
+    vendor/cn/prebuilt/xga/media/bootanimation.zip:system/media/bootanimation.zip \
+vendor/cn/prebuilt/xga/media/android_audio.mp3:system/media/android_audio.mp3
 
 # USB
 #ADDITIONAL_DEFAULT_PROPERTIES += persist.sys.usb.config=mass_storage,adb
