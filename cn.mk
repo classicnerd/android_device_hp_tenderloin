@@ -20,7 +20,7 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 
 # Set up the product codename, build version & MOTD.
 PRODUCT_CODENAME := Butta
-PRODUCT_VERSION_DEVICE_SPECIFIC := v4
+PRODUCT_VERSION_DEVICE_SPECIFIC := v4.01
 
 PRODUCT_MOTD :="\n\n\nThank you for choosing Classicnerd Tenderloin\nGet the latest rom at www.classicnerd.net - enjoy the possibilities\n"
 

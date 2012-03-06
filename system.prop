@@ -21,10 +21,6 @@ debug.composition.type=gpu
 #ro.sf.compbypass.enable=1
 #debug.overlayui.enable=0
 
-media.stagefright.enable-player=true
-media.stagefright.enable-meta=true
-media.stagefright.enable-scan=true
-media.stagefright.enable-http=true
 ro.media.enc.jpeg.quality=100
 ro.config.play.bootsound=1
 
