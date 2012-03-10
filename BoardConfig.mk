@@ -118,4 +118,6 @@ BOARD_CUSTOM_BOOTIMG_MK := device/hp/tenderloin/uboot-bootimg.mk
 TARGET_RECOVERY_PRE_COMMAND := "/system/bin/rebootcmd recovery"
 TARGET_ALTOS_PRE_COMMAND := "/system/bin/rebootcmd altos"
 
+
+USE_MALLOC_ALIGNMENT := 16
 ADDITIONAL_DEFAULT_PROPERTIES += ro.secure=0
