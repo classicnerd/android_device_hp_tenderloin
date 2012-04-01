@@ -21,7 +21,6 @@ debug.composition.type=gpu
 #ro.sf.compbypass.enable=1
 #debug.overlayui.enable=0
 
-ro.media.enc.jpeg.quality=100
 ro.config.play.bootsound=1
 
 # The OpenGL ES API level that is natively supported by this device.
