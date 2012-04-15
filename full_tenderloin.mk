@@ -162,6 +162,7 @@ PRODUCT_PACKAGES += \
     sensors.tenderloin \
     lights.tenderloin \
     ts_srv \
+    ts_srv_set \
     dosfsck \
     bcattach \
     serial \
