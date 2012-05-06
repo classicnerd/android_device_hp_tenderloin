@@ -14,6 +14,7 @@ PRODUCT_MODEL := Touchpad
 PRODUCT_MANUFACTURER := HP
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=touchpad \
+    BUILD_ID=HLK75F \
     BUILD_FINGERPRINT="google/yakju/maguro:4.0.1/ITL41D/223971:user/release-keys" \
     PRIVATE_BUILD_DESC="yakju-user 4.0.3 ITL41D 223971 release-keys"
 
