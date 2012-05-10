@@ -14,13 +14,12 @@ PRODUCT_MODEL := Touchpad
 PRODUCT_MANUFACTURER := HP
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=touchpad \
-    BUILD_ID=HLK75F \
-    BUILD_FINGERPRINT="google/yakju/maguro:4.0.1/ITL41D/223971:user/release-keys" \
-    PRIVATE_BUILD_DESC="yakju-user 4.0.3 ITL41D 223971 release-keys"
+    BUILD_FINGERPRINT="motorola/tervigon/wingray:4.0.4/IMM76I/330937:user/release-keys" \
+    PRIVATE_BUILD_DESC="tervigon-user 4.0.4 IMM76I 330937 release-keys"
 
 # Set up the product codename, build version & MOTD.
 PRODUCT_CODENAME := Butta
-PRODUCT_VERSION_DEVICE_SPECIFIC := v4.02.1
+PRODUCT_VERSION_DEVICE_SPECIFIC := v4.02.2
 
 PRODUCT_MOTD :="\n\n\nThank you for choosing Classicnerd Tenderloin\nGet the latest rom at www.classicnerd.net - enjoy the possibilities\n"
 
