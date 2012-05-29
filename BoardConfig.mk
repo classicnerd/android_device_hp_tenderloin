@@ -9,6 +9,7 @@ TARGET_USES_2G_VM_SPLIT := true
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_KERNEL := false
 
+TARGET_BOOTLOADER_BOARD_NAME := tenderloin
 TARGET_BOARD_PLATFORM := msm8660
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
 BOARD_USES_ADRENO_200 := true
@@ -19,22 +20,25 @@ TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_SMP := true
 ARCH_ARM_HAVE_TLS_REGISTER := true
 
-TARGET_BOOTLOADER_BOARD_NAME := tenderloin
+
 TARGET_NO_RADIOIMAGE := true
 TARGET_HAVE_TSLIB := false
-TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp  
-COMMON_GLOBAL_CFLAGS += -DREFRESH_RATE=59 -DQCOM_HARDWARE
+TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
+TARGET_USE_SCORPION_BIONIC_OPTIMIZATION := true
+TARGET_USE_SCORPION_PLD_SET := true
+TARGET_SCORPION_BIONIC_PLDOFFS := 6
+TARGET_SCORPION_BIONIC_PLDSIZE := 128
 
+COMMON_GLOBAL_CFLAGS += -DREFRESH_RATE=59 -DQCOM_HARDWARE -DUSES_AUDIO_LEGACY
 
 # Wifi related defines
-BOARD_WPA_SUPPLICANT_DRIVER := ar6000
-CONFIG_DRIVER_AR6000 := true
-WPA_SUPPLICANT_VERSION      := VER_0_6_X
-BOARD_WLAN_DEVICE           := ar6000
-WIFI_DRIVER_MODULE_PATH     := "/system/lib/modules/ar6000.ko"
-WIFI_DRIVER_MODULE_NAME     := "ar6000"
-BOARD_WEXT_NO_COMBO_SCAN	:= true
+BOARD_WPA_SUPPLICANT_DRIVER := NL80211
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_ath6kl
+WPA_SUPPLICANT_VERSION := VER_0_8_X
+BOARD_WLAN_DEVICE := ath6kl
+WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/ath6kl.ko"
+WIFI_DRIVER_MODULE_NAME := "ath6kl"
 
 # Audio
 BOARD_USES_AUDIO_LEGACY := true
@@ -70,15 +74,12 @@ BOARD_FIRST_CAMERA_FRONT_FACING := true
 BOARD_CAMERA_USE_ENCODEDATA := true
 
 BOARD_OVERLAY_FORMAT_YCbCr_420_SP := true
-TARGET_BOOTLOADER_BOARD_NAME := tenderloin
 USE_CAMERA_STUB := true
 
 # tenderloin- these kernel settings are temporary to complete build
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=qcom
 BOARD_KERNEL_BASE := 0x40200000
 BOARD_PAGE_SIZE := 2048
-
-TARGET_USE_SCORPION_BIONIC_OPTIMIZATION := true
 
 BOARD_NEEDS_CUTILS_LOG := true
 
@@ -92,8 +93,25 @@ BOARD_USES_UBOOT_MULTIIMAGE := true
 # use dosfsck from dosfstools
 BOARD_USES_CUSTOM_FSCK_MSDOS := true
 
+# Define kernel config for inline building
+TARGET_KERNEL_CONFIG := tenderloin_android_defconfig
+
+
 # Define Prebuilt kernel locations
 TARGET_PREBUILT_KERNEL := device/hp/tenderloin/prebuilt/boot/kernel
+
+# kernel
+BUILD_KERNEL := true
+TARGET_KERNEL_SOURCE := kernel/hp/tenderloin
+EXTRA_MODULES:
+	cd external/compat-wireless-3.3-rc1-2; ./scripts/driver-select ath6kl
+	export CROSS_COMPILE=$(ARM_EABI_TOOLCHAIN)/arm-eabi-; $(MAKE) -C external/compat-wireless-3.3-rc1-2 KLIB=$(KERNEL_SRC) KLIB_BUILD=$(KERNEL_OUT) ARCH=$(TARGET_ARCH) $(ARM_CROSS_COMPILE)
+	export CROSS_COMPILE=$(ARM_EABI_TOOLCHAIN)/arm-eabi-; $(MAKE) -C external/compat-wireless-3.3-rc1-2 KLIB=$(KERNEL_SRC) KLIB_BUILD=$(KERNEL_OUT) ARCH=$(TARGET_ARCH) $(ARM_CROSS_COMPILE) install-modules
+	cp `find $(KERNEL_OUT)/$(TARGET_KERNEL_SOURCE) -name *.ko` $(KERNEL_MODULES_OUT)/
+	arm-eabi-strip --strip-debug `find $(KERNEL_MODULES_OUT) -name *.ko`
+	cd external/compat-wireless-3.3-rc1-2; ./scripts/driver-select restore
+
+TARGET_KERNEL_MODULES := EXTRA_MODULES
 
 TARGET_RECOVERY_INITRC := device/hp/tenderloin/recovery/init.rc
 
@@ -118,6 +136,5 @@ BOARD_CUSTOM_BOOTIMG_MK := device/hp/tenderloin/uboot-bootimg.mk
 TARGET_RECOVERY_PRE_COMMAND := "/system/bin/rebootcmd recovery"
 TARGET_ALTOS_PRE_COMMAND := "/system/bin/rebootcmd altos"
 
-
-USE_MALLOC_ALIGNMENT := 16
 ADDITIONAL_DEFAULT_PROPERTIES += ro.secure=0
+

@@ -46,6 +46,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/hp/tenderloin/boot_webos:system/bin/boot_webos
 
+# media minor check boot script
+PRODUCT_COPY_FILES += \
+    device/hp/tenderloin/prebuilt/etc/init.d/10check_media_minor:system/etc/init.d/10check_media_minor
+
 # Vold configuration
 PRODUCT_COPY_FILES += \
     device/hp/tenderloin/vold.fstab:system/etc/vold.fstab \
@@ -82,21 +86,11 @@ PRODUCT_COPY_FILES += \
     device/hp/tenderloin/prebuilt/usr/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
     device/hp/tenderloin/prebuilt/usr/keylayout/pmic8058_pwrkey.kl:system/usr/keylayout/pmic8058_pwrkey.kl
 
-# Kernel modules
+# Wifi Modules
 PRODUCT_COPY_FILES += \
-    device/hp/tenderloin/prebuilt/modules/ansi_cprng.ko:system/lib/modules/ansi_cprng.ko \
-    device/hp/tenderloin/prebuilt/wifi/ar6000.ko:system/lib/modules/ar6000.ko \
     device/hp/tenderloin/prebuilt/modules/cifs.ko:system/lib/modules/cifs.ko \
-    device/hp/tenderloin/prebuilt/modules/cpaccess.ko:system/lib/modules/cpaccess.ko \
-    device/hp/tenderloin/prebuilt/modules/dma_test.ko:system/lib/modules/dma_test.ko \
-    device/hp/tenderloin/prebuilt/modules/gspca_main.ko:system/lib/modules/gspca_main.ko \
-    device/hp/tenderloin/prebuilt/modules/lcd.ko:system/lib/modules/lcd.ko \
-    device/hp/tenderloin/prebuilt/modules/librasdioif.ko:system/lib/modules/librasdioif.ko \
     device/hp/tenderloin/prebuilt/modules/nls_utf8.ko:system/lib/modules/nls_utf8.ko \
     device/hp/tenderloin/prebuilt/modules/ntfs.ko:system/lib/modules/ntfs.ko \
-    device/hp/tenderloin/prebuilt/modules/oprofile.ko:system/lib/modules/oprofile.ko \
-    device/hp/tenderloin/prebuilt/modules/scsi_wait_scan.ko:system/lib/modules/scsi_wait_scan.ko \
-    device/hp/tenderloin/prebuilt/modules/tcp_bic.ko:system/lib/modules/tcp_bic.ko \
     device/hp/tenderloin/prebuilt/modules/tun.ko:system/lib/modules/tun.ko
 
 #Wifi Firmware
@@ -131,6 +125,11 @@ PRODUCT_COPY_FILES += \
     device/hp/tenderloin/prebuilt/wifi/ath6k/AR6003/hw2.1.1/bdata.SD32.bin:/system/etc/firmware/ath6k/AR6003/hw2.1.1/bdata.CUSTOM.bin \
     device/hp/tenderloin/prebuilt/wifi/ath6k/AR6003/hw1.0/bdata.SD32.bin:/system/etc/firmware/ath6k/AR6003/hw1.0/bdata.CUSTOM.bin
 
+# Wifi Firmware
+# Temporary hack for ATH6KL
+PRODUCT_COPY_FILES += \
+    device/hp/tenderloin/prebuilt/wifi/ath6k/AR6003/hw2.1.1/bdata.SD32.bin:/system/etc/firmware/ath6k/AR6003/hw2.1.1/bdata.bin
+
 # We have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
 
@@ -157,14 +156,6 @@ PRODUCT_PACKAGES += \
     libmm-omxcore \
     libdivxdrmdecrypt \
     libOmxVdec
-
-# QCOM OMX Video Encoding/Tests
-#PRODUCT_PACKAGES += \
-#   mm-vdev-omx-test \
-#   mm-video-driver-test \
-#   libOmxVenc \
-#   mm-venc-omx-test720p \
-#   mm-video-encdrv-test
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -194,17 +185,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.google.networklocation=1 \
     dalvik.vm.lockprof.threshold=500 \
     dalvik.vm.dexopt-flags=m=y
-
-# Prebuilt kernel.
-ifeq ($(TARGET_PREBUILT_KERNEL),)
-	LOCAL_KERNEL := device/hp/tenderloin/prebuilt/boot/kernel
-else
-	LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
-endif
-
-# Copy the kernel.
-PRODUCT_COPY_FILES += \
-    $(LOCAL_KERNEL):kernel
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 $(call inherit-product, frameworks/base/build/tablet-dalvik-heap.mk)

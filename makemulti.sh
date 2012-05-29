@@ -12,13 +12,13 @@ if [ -d "$HOME/android/system/out/target/product/tenderloin" ]; then
 fi
 
 if [ ! -d "$OUT" ]; then
-   echo -e "\$OUT is unset or set incorrectly.  Re-build CM or type\nexport OUT=/path/to/out"
+   echo -e "\$OUT is unset or set incorrectly.  Re-build CN or type\nexport OUT=/path/to/out"
    exit 0
 fi
 
 # OS X users change the line below to point to mkimage
 MKIMAGE=$OUT/../../../host/linux-x86/bin/mkimage
-KERNEL=~/gh/CyanogenMod/hp-kernel-tenderloin/
+KERNEL=~/gh/Classicnerd/hp-kernel-tenderloin/
 ROOT=$OUT/root
 CPIO_TARGET=ramdisk.img
 UBOOTED_RAMDISK=ramdisk.ub
@@ -32,7 +32,7 @@ if [ "$1" = "-r" ]; then
 fi
 
 if [ ! -d "$ROOT" ]; then
-   echo -e "$ROOT is not an existing folder.  Re-build CM or type\nexport OUT=/path/to/out"
+   echo -e "$ROOT is not an existing folder.  Re-build CN or type\nexport OUT=/path/to/out"
    exit 0
 fi
 

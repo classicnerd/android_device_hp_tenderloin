@@ -14,12 +14,12 @@ PRODUCT_MODEL := Touchpad
 PRODUCT_MANUFACTURER := HP
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=touchpad \
-    BUILD_FINGERPRINT="motorola/tervigon/wingray:4.0.4/IMM76I/330937:user/release-keys" \
-    PRIVATE_BUILD_DESC="tervigon-user 4.0.4 IMM76I 330937 release-keys"
+    BUILD_FINGERPRINT="motorola/tervigon/wingray:4.0.4/IML77/239789:user/release-keys" \
+    PRIVATE_BUILD_DESC="tervigon-user 4.0.4 IML77 239789 release-keys"
 
 # Set up the product codename, build version & MOTD.
 PRODUCT_CODENAME := Butta
-PRODUCT_VERSION_DEVICE_SPECIFIC := v4.04.0
+PRODUCT_VERSION_DEVICE_SPECIFIC := v4.04.1
 
 PRODUCT_MOTD :="\n\n\nThank you for choosing Classicnerd Tenderloin\nGet the latest rom at www.classicnerd.net - enjoy the possibilities\n"
 
@@ -32,8 +32,7 @@ PRODUCT_PACKAGE_OVERLAYS += \
 
 # Copy compatible prebuilt files
 PRODUCT_COPY_FILES +=  \
-    vendor/cn/prebuilt/xga/media/bootanimation.zip:system/media/bootanimation.zip \
-vendor/cn/prebuilt/xga/media/android_audio.mp3:system/media/android_audio.mp3
+    vendor/cn/prebuilt/xga/media/bootanimation.zip:system/media/bootanimation.zip
 
 # USB
 #ADDITIONAL_DEFAULT_PROPERTIES += persist.sys.usb.config=mass_storage,adb
