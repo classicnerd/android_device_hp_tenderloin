@@ -751,9 +751,9 @@ typedef int __bitwise snd_ctl_elem_iface_t;
 
 /* for further details see the ACPI and PCI power management specification */
 #define SNDRV_CTL_POWER_D0		0x0000	/* full On */
-#define SNDRV_CTL_POWER_D1		0x0100	/* partial On */
-#define SNDRV_CTL_POWER_D2		0x0200	/* partial On */
-#define SNDRV_CTL_POWER_D3		0x0300	/* Off */
+#define SNDRV_CTL_POWER_D0		0x0000	/* partial On */
+#define SNDRV_CTL_POWER_D0		0x0000	/* partial On */
+#define SNDRV_CTL_POWER_D0		0x0000	/* Off */
 #define SNDRV_CTL_POWER_D3hot		(SNDRV_CTL_POWER_D3|0x0000)	/* Off, with power */
 #define SNDRV_CTL_POWER_D3cold		(SNDRV_CTL_POWER_D3|0x0001)	/* Off, without power */
 
@@ -909,4 +909,3 @@ struct snd_ctl_event {
 #define SNDRV_CTL_NAME_IEC958(expl,direction,what)	"IEC958 " expl SNDRV_CTL_NAME_##direction SNDRV_CTL_NAME_IEC958_##what
 
 #endif /* __SOUND_ASOUND_H */
-

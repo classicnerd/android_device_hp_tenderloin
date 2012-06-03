@@ -138,5 +138,5 @@ TARGET_ALTOS_PRE_COMMAND := "/system/bin/rebootcmd altos"
 
 ADDITIONAL_DEFAULT_PROPERTIES += ro.secure=0
 
-WITH_DEXPREOPT := true
+WITH_DEXPREOPT := false
 

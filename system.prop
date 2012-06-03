@@ -13,11 +13,11 @@ wifi.interface=wlan0
 debug.fb.rgb565 = 0
 debug.sf.hw=1
 debug.enabletr=false
-windowsmgr.max_events_per_sec=150
+
 com.qc.hardware=true
 
-#GPU Tweaks
-debug.composition.type=gpu
+#c2d
+debug.composition.type=cpu
 #ro.sf.compbypass.enable=1
 #debug.overlayui.enable=0
 
