@@ -163,6 +163,20 @@ PRODUCT_PACKAGES += \
     libaudioutils \
     audio.primary.tenderloin \
 
+# Prebuilt audio libs
+PRODUCT_COPY_FILES += \
+    device/hp/tenderloin/prebuilt/audio/lib/liba2dp.so:system/lib/liba2dp.so \
+    device/hp/tenderloin/prebuilt/audio/lib/libasound.so:system/lib/libasound.so \
+    device/hp/tenderloin/prebuilt/audio/lib/libaudiopolicy.so:system/lib/libaudiopolicy.so \
+    device/hp/tenderloin/prebuilt/audio/lib/libaudio.so:system/lib/libaudio.so \
+    device/hp/tenderloin/prebuilt/audio/lib/hw/alsa.tenderloin.so:system/lib/hw/alsa.tenderloin.so
+
+# Prebuilt audio libs needed to compile other libs
+PRODUCT_COPY_FILES += \
+    device/hp/tenderloin/prebuilt/audio/lib/libaudio.so:obj/lib/libaudio.so \
+    device/hp/tenderloin/prebuilt/audio/lib/libaudiopolicy.so:obj/lib/libaudiopolicy.so \
+    device/hp/tenderloin/prebuilt/audio/lib/liba2dp.so:obj/lib/liba2dp.so
+
 # Prebuilt alsa configs
 PRODUCT_COPY_FILES += \
     device/hp/tenderloin/prebuilt/audio/usr/share/alsa/pcm/dsnoop.conf:system/usr/share/alsa/pcm/dsnoop.conf \
